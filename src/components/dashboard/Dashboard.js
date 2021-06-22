@@ -6,10 +6,12 @@ import { connect } from 'react-redux'
 // connect this component to d getFirestore
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 const Dashboard = (props) => {
   // console.log(props);
-  const { projects } = props
+  const { projects, auth } = props
+  if (!auth.uid) return <Redirect to='/signin' />
   return(
     <div className="dashboard container">
       <div className="row">
@@ -24,16 +26,27 @@ const Dashboard = (props) => {
   )
 }
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
+  console.log(state)
   return{
     // projects (object) is attached to the state (props) of the project (from rootReducer) and the initial states of the projectReducer
-    projects: state.project.projects
+    // Dummy data
+    // projects: state.project.projects
+      // from firestore
+    projects: state.firestore.ordered.projects,
+    auth: state.firebase.auth
   }
 }
+// function mapStateToProps(state){
+//   return{
+//     // projects (object) is attached to the state (props) of the project (from rootReducer) and the initial states of the projectReducer
+//     projects: state.project.projects
+//   }
+// }
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    {collection: 'projects'}
+    { collection: 'projects' }
   ])
 )(Dashboard)
