@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../redux/actions/authActions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+import img from '../images/img.png'
 
 class SignIn extends Component {
 state = {
@@ -22,9 +24,11 @@ render() {
     if (auth.uid) return <Redirect to='/' />
 
     return (
-        <div className="container">
-          <form onSubmit={this.handleSubmit} className="white">
-            <h5 className="grey-text text-darken-3"> Sign In</h5>
+        <Container>
+
+          <Wrapper>
+          <Form onSubmit={this.handleSubmit} className="white">
+            <H5> Sign In</H5>
             <div className="input-field">
               <label htmlFor="email"> Email </label>
               <input type="email" id="email" onChange={this.handleChange} />
@@ -39,11 +43,53 @@ render() {
                 { authError ? <p>{authError}</p> : null }
               </div>
             </div>
-          </form>
-        </div>
+          </Form>
+          <ImageBox>
+            <Img src={img} alt="" />
+          </ImageBox>
+          </Wrapper>
+
+        </Container>
     )
   }
 }
+
+// styles 
+
+const Container = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 80vh;
+`;
+
+const Wrapper = styled.div`
+display: grid;
+grid-template-columns: 60% auto;
+width: 60%;
+height: 60vh;
+border-radius: 20px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+overflow: hidden;
+
+`;
+const H5 = styled.h5`
+color: #2d5bda;
+margin-bottom: 30px;
+`;
+const Form = styled.form`
+padding: 5%;
+`;
+const ImageBox = styled.div`
+width: 100%;
+height: 100%;
+`;
+const Img = styled.img`
+width: 100%;
+height: 100%;
+`;
+
+
 
 const mapStateToProps = (state) => {
   return{
