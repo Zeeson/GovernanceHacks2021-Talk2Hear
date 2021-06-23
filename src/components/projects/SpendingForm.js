@@ -6,6 +6,7 @@ import { Redirect, NavLink } from 'react-router-dom'
 class CreateProject extends Component {
 state = {
     title: '',
+    name: '',
     content: '',
     imageData: [],
     imageUrl: '',
@@ -48,8 +49,23 @@ render() {
         <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3"> Report Public or Private Persons' Spending Ananymously</h5>
+            <p className="grey-text text-darken-3"> Select from below or type if not found</p>
             <div className="input-field">
-              <label htmlFor="title"> Name </label>
+            <label htmlFor="title"> Name </label>
+            <select required className='form-group form-control' onChange={this.handleChange} >
+                <option>Select Name</option>
+                <option>President Muhammad Buhari</option>
+                <option>Mike Adenuga</option>
+                <option>Gov. Sanwolu</option>
+                <option>Sen. Ahmed Lawan</option>
+                <option>Alh. Dangote</option>
+                <option>Atiku Abubakar</option>
+                <option>Peter Obi</option>
+                <option>Rotimi Ameichi</option>
+            </select>
+            </div>
+            <div className="input-field">
+              <label htmlFor="name"> Name </label>
               <input type="text" id="title" onChange={this.handleChange} />
             </div>
             <div className="input-field">
@@ -78,7 +94,8 @@ render() {
               <button className="btn pink lighten-1 z-index-0">Create</button>
             </div>
           </form>
-          <div><NavLink to='/'>
+          <div>
+          <NavLink to='/'>
             <button className="btn green lighten-1 z-index-0">View other ananymous reports</button>
           </NavLink>
           </div>
