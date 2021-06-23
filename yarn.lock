@@ -9633,7 +9633,7 @@ react-app-polyfill@^2.0.0:
 
 react-country-region-selector@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.npmjs.org/react-country-region-selector/-/react-country-region-selector-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-country-region-selector/-/react-country-region-selector-3.1.0.tgz#881bc56352c4fd4a3d89fe3fb96f7a9a2b8b9aff"
   integrity sha512-wA4K9W4qcbpPy2sd+utv7999qMwPoEfWVJj95xvl72xCopaLSsogQG1Y9HKX3wyTljCJZfUvAcrTnNZIQq6owA==
 
 react-dev-utils@^11.0.1:

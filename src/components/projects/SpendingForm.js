@@ -6,11 +6,8 @@ import { RegionDropdown } from 'react-country-region-selector';
 
 class CreateProject extends Component {
 state = {
-<<<<<<< HEAD
     title: '',
     name: '',
-=======
->>>>>>> 701a75219a3a19f94a55ab517e2ddf54cdea41a1
     content: '',
     notables: '',
     imageData: [],
@@ -45,7 +42,6 @@ handleImageUpload = (e) => {
   })
 }
 
-
 handleVideoUpload = (e) => {
   const values = e.target.files;
   [...values].forEach(file => {
@@ -67,32 +63,12 @@ render() {
   const { country, region} = this.state
   const { auth } = this.props
   if (!auth.uid) return <Redirect to='/signin' />
-    
-    
     return (
         <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3"> Report Public or Private Persons' Spending Ananymously</h5>
             <p className="grey-text text-darken-3"> Select from below or type if not found</p>
             <div className="input-field">
-<<<<<<< HEAD
-            <label htmlFor="title"> Name </label>
-            <select required className='form-group form-control' onChange={this.handleChange} >
-                <option>Select Name</option>
-                <option>President Muhammad Buhari</option>
-                <option>Mike Adenuga</option>
-                <option>Gov. Sanwolu</option>
-                <option>Sen. Ahmed Lawan</option>
-                <option>Alh. Dangote</option>
-                <option>Atiku Abubakar</option>
-                <option>Peter Obi</option>
-                <option>Rotimi Ameichi</option>
-            </select>
-            </div>
-            <div className="input-field">
-              <label htmlFor="name"> Name </label>
-              <input type="text" id="title" onChange={this.handleChange} />
-=======
               <select value={this.state.value} onChange={this.handleSelectChange} className="input-field dark-gray">
                 <option value="" selected>Select Noteables</option>
                 <optgroup label="Government">
@@ -115,7 +91,7 @@ render() {
               <label htmlFor="notables"> Enter Noteables </label>
               <input type="text" id="notables" onChange={this.handleChange} />
             </div>
-            <RegionDropdown 
+            <RegionDropdown
             className="input-field"
             country={country}
             value={region}
@@ -135,7 +111,6 @@ render() {
             <span>Private</span>
             </label>
             </p>
->>>>>>> 701a75219a3a19f94a55ab517e2ddf54cdea41a1
             </div>
             <div className="input-field">
               <label htmlFor="content"> What would you like to say: </label>
