@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { createProject } from '../../redux/actions/projectActions'
 import { Redirect, NavLink } from 'react-router-dom'
+import { RegionDropdown } from 'react-country-region-selector';
 
 class CreateProject extends Component {
 state = {
@@ -10,13 +11,20 @@ state = {
     imageData: [],
     imageUrl: '',
     videoData: [],
-    videoUrl: ''
+    videoUrl: '',
+    value: 'Select Whom',
+    region: '',
+    country: 'Nigeria'
 }
 
 handleChange = (e) => {
   this.setState({
     [e.target.id]: e.target.value
   })
+}
+
+handleSelectChange = (e) => {
+  this.setState({value: e.target.value});
 }
 
 handleSubmit = (e) => {
@@ -40,10 +48,22 @@ handleVideoUpload = (e) => {
   })
 }
 
+selectRegion = (val) => {
+  this.setState({ region: val });
+}
+
+componentDidMount() {
+  window.$(document).ready(function(){
+    window.$('select').not('.disabled').formSelect();
+    });
+}
+
 render() {
+  const { country, region} = this.state
   const { auth } = this.props
   if (!auth.uid) return <Redirect to='/signin' />
-
+    
+    
     return (
         <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
@@ -55,6 +75,42 @@ render() {
             <div className="input-field">
               <label htmlFor="content"> Content </label>
               <textarea id="content" className="materialize-textarea" onChange={this.handleChange}> </textarea>
+            </div>
+            <div className="input-field">
+              <select value={this.state.value} onChange={this.handleSelectChange} className="input-field">
+                <optgroup label="Government">
+                  <option value="1">President Muhammadu Buhari</option>
+                  <option value="2">Vice President Yemi Oshinbajo</option>
+                  <option value="3">Abdullahi Adamu</option>
+                  <option value="4">Ike Ekweremadu</option>
+                </optgroup>
+                <optgroup label="Private Business">
+                  <option value="5">Aliko Dangote</option>
+                  <option value="6">Femi Otedola</option>
+                  <option value="7">Mike Adenuga</option>
+                  <option value="8">Folorunso Alakija</option>
+                </optgroup>
+              </select>
+              <label>Notables</label>
+            </div>
+            <RegionDropdown className="input-field" 
+            country={country}
+            value={region}
+            onChange={(val) => this.selectRegion(val)}  />
+            <div>
+            <label>Select Sector</label>
+            <p>
+            <label>
+              <input name="sector" type="radio" checked />
+              <span>Public</span>
+            </label>
+            </p>
+            <p>
+            <label>
+            <input name="sector" type="radio" />
+            <span>Private</span>
+            </label>
+            </p>
             </div>
             <div className="file-field input-field">
             <div class="btn blue">
