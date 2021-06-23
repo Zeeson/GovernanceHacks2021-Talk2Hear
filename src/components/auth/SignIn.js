@@ -54,7 +54,7 @@ render() {
   }
 }
 
-// styles 
+// styles
 
 const Container = styled.div`
 display: flex;

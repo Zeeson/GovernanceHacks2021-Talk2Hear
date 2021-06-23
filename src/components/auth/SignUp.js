@@ -56,14 +56,14 @@ class SignUp extends Component {
           </div>
         </Form>
         </Wrapper>
-        
+
       </Container>
     )
   }
 }
 
 
-// styles 
+// styles
 
 const Container = styled.div`
 display: flex;
