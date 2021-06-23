@@ -66,11 +66,11 @@ render() {
     return (
         <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
-            <h5 className="grey-text text-darken-3"> Report Public or Private Persons' Spending Ananymously</h5>
+            <h5 className="grey-text text-darken-3"> Report Public or Private Notables' Spending Ananymously</h5>
             <p className="grey-text text-darken-3"> Select from below or type if not found</p>
             <div className="input-field">
               <select value={this.state.value} onChange={this.handleSelectChange} className="input-field dark-gray">
-                <option value="" selected>Select Noteables</option>
+                <option value="" selected>Select Notables</option>
                 <optgroup label="Government">
                   <option value="1">President Muhammadu Buhari</option>
                   <option value="2">Vice President Yemi Oshinbajo</option>
@@ -88,7 +88,7 @@ render() {
             </div>
             <p className="red-text">* Note: If Notables not above, Enter their names below:</p>
             <div className="input-field">
-              <label htmlFor="notables"> Enter Noteables </label>
+              <label htmlFor="notables"> Enter Notables </label>
               <input type="text" id="notables" onChange={this.handleChange} />
             </div>
             <RegionDropdown
