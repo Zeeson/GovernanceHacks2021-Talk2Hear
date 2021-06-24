@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../redux/actions/authActions'
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import img from '../images/img.png'
 
@@ -43,6 +43,9 @@ render() {
                 { authError ? <p>{authError}</p> : null }
               </div>
             </div>
+            <NavLink to='/signup'>
+              <button className="btn-large green z-index-0">Create New Account</button>
+            </NavLink>
           </Form>
           <ImageBox>
             <Img src={img} alt="" />
@@ -71,7 +74,6 @@ height: 60vh;
 border-radius: 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 overflow: hidden;
-
 `;
 const H5 = styled.h5`
 color: #2d5bda;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../../redux/actions/authActions'
 import styled from 'styled-components'
@@ -54,6 +54,9 @@ class SignUp extends Component {
               { authError ? <p>{authError}</p> : null }
             </div>
           </div>
+          <NavLink to='/signin'>
+            Have an accout? <button className="btn-small bold green z-index-0 ">Sign In</button>
+          </NavLink>
         </Form>
         </Wrapper>
 

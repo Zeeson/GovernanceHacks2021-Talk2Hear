@@ -2,12 +2,12 @@ import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
 
-const ProjectSummary = ({project}) => {
+const SpendingSummary = ({spending}) => {
   return (
     <Card>
       <CardContent className="card-content grey-text text-darken-3">
-        <Title>{project.title}</Title>
-        <Body>Posted by {project.authorFirstName} {project.authorLastName}</Body>
+        <Title>{spending.title}</Title>
+        <Body>Posted by {spending.ananymous} </Body>
         <Date className="grey-text">{moment(project.createdAt.toDate()).calendar()}</Date>
         <Reward> 3 points earned </Reward>
       </CardContent>
@@ -45,4 +45,4 @@ font-size: 8pt;
 // `;
 
 
-export default ProjectSummary
+export default SpendingSummary

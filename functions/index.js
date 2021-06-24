@@ -22,6 +22,20 @@ exports.projectCreated = functions.firestore
     return createNotification(notification);
 });
 
+exports.spendingCreated = functions.firestore
+  .document('spendings/{spendingId}')
+  .onCreate(doc => {
+
+    const project = doc.data();
+    const notification = {
+      content: 'New Notable Report',
+      user: "Ananymous",
+      time: admin.firestore.FieldValue.serverTimestamp()
+    }
+
+    return createNotification(notification);
+});
+
 // exports.userJoined = functions.auth.user()
 //   .onCreate(user => {
 //

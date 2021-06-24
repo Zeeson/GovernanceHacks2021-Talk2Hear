@@ -95,4 +95,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProject)
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(CreateProject)
