@@ -5,8 +5,7 @@ import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import styled from 'styled-components'
-// image 
-import img1 from '../images/img1.jpg'
+
 
 const ProjectDetails = (props) => {
 const { project, auth } = props;

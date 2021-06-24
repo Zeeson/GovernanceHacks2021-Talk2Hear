@@ -32,7 +32,8 @@ const CardImg =styled.div`
   margin-right: 2vw;
   width: 100px;
   height: 100px;
-  overflow; hidden;
+  overflow: hidden;
+  border-radius: 6px;
 `;
 const CardContent =styled.div`
 
