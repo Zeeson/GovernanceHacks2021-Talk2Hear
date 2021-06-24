@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import styled from 'styled-components'
 
+
 const ProjectDetails = (props) => {
 const { project, auth } = props;
 if (!auth.uid) return <Redirect to='/signin' />
@@ -39,11 +40,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 5%;
+margin-top: 15vh;
 `;
 const Proj = styled.div`
   border-radius: 10px;
   overflow: hidden;
   width: 75%;
+  @media (max-width: 950px) {
+
+  width: 95%;
+        }
 `;
 
 const Title =styled.span`

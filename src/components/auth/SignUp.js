@@ -72,17 +72,23 @@ const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-height: 80vh;
+height: 100vh;
+
 `;
 
 const Wrapper = styled.div`
 display: grid;
 grid-template-columns: auto 60%;
-width: 60%;
+width: 75%;
 height: 70vh;
 border-radius: 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 overflow: hidden;
+@media (max-width: 950px) {
+  grid-template-columns: 1fr;
+  width: 85%;
+  height: auto;
+        }
 
 `;
 const H5 = styled.h5`
@@ -95,6 +101,10 @@ padding: 5%;
 const ImageBox = styled.div`
 width: 100%;
 height: 100%;
+
+@media (max-width: 950px) {
+          display: none;
+        }
 `;
 const Img = styled.img`
 width: 100%;
