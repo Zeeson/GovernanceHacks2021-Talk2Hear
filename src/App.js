@@ -5,7 +5,8 @@ import ProjectDetails from './components/projects/ProjectDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import CreateProject from './components/projects/CreateProject'
-import SpendingForm from './components/projects/SpendingForm'
+import SpendingForm from './components/spending/SpendingForm'
+import SpendingDetails from './components/spending/SpendingDetails'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/signup' component={SignUp} />
           <Route path='/create' component={CreateProject} />
           <Route path='/spending/form' component={SpendingForm} />
+          <Route path='/spending/:id' component={SpendingDetails} />
         </Switch>
       </div>
     </BrowserRouter>

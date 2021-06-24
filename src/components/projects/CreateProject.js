@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createProject } from '../../redux/actions/projectActions'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
 
 class CreateProject extends Component {
 state = {
@@ -45,7 +46,7 @@ render() {
   if (!auth.uid) return <Redirect to='/signin' />
 
     return (
-        <div className="container">
+        <Dash className="container">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3"> Post New Update / News</h5>
             <div className="input-field">
@@ -78,10 +79,16 @@ render() {
               <button className="btn pink lighten-1 z-index-0">Create</button>
             </div>
           </form>
-        </div>
+        </Dash>
     )
   }
 }
+
+
+const Dash = styled.div`
+margin-top: 15vh;
+`;
+
 
 const mapStateToProps = (state) => {
   return {
@@ -95,4 +102,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProject)
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(CreateProject)

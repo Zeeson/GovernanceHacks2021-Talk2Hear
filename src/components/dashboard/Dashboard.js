@@ -1,7 +1,9 @@
 import React from 'react'
 import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
+import SpendingList from '../spending/SpendingList'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 // connect this component to d getFirestore
 import { firestoreConnect } from 'react-redux-firebase'
@@ -10,27 +12,33 @@ import { Redirect } from 'react-router-dom'
 
 const Dashboard = (props) => {
   // console.log(props);
-  const { projects, auth, notifications  } = props
+  const { projects, spendings, auth, notifications  } = props
   if (!auth.uid) return <Redirect to='/signin' />
   return(
-    <div className="dashboard container">
+    <Dash className="dashboard container">
       <div className="row">
         <div className="col s12 m6">
           <ProjectList projects={projects} />
+          <SpendingList spendings={spendings} />
         </div>
         <div className="col s12 m5 offset-m1">
           <Notifications notifications={notifications} />
         </div>
       </div>
-    </div>
+    </Dash>
   )
 }
+
+const Dash = styled.div`
+margin-top: 15vh;
+`;
 
 
 const mapStateToProps = (state) => {
   // console.log(state);
   return {
     projects: state.firestore.ordered.projects,
+    spendings: state.firestore.ordered.spendings,
     auth: state.firebase.auth,
     notifications: state.firestore.ordered.notifications
   }
@@ -59,6 +67,7 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect([
       { collection: 'projects', orderBy: ['createdAt', 'desc']},
+      { collection: 'spendings', orderBy: ['createdAt', 'desc']},
       { collection: 'notifications', limit: 5, orderBy: ['time', 'desc']}
   ])
 )(Dashboard)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../redux/actions/authActions'
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import img from '../images/img.png'
 
@@ -43,6 +43,9 @@ render() {
                 { authError ? <p>{authError}</p> : null }
               </div>
             </div>
+            <NavLink to='/signup'>
+              <button className="btn-large green z-index-0">Create New Account</button>
+            </NavLink>
           </Form>
           <ImageBox>
             <Img src={img} alt="" />
@@ -54,24 +57,36 @@ render() {
   }
 }
 
-// styles 
+// styles
 
 const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-height: 80vh;
+height: 100vh;
 `;
 
 const Wrapper = styled.div`
 display: grid;
 grid-template-columns: 60% auto;
-width: 60%;
+width: 75%;
 height: 60vh;
 border-radius: 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 overflow: hidden;
+<<<<<<< HEAD
+=======
+@media (max-width: 1050px) {
 
+        }
+
+        @media (max-width: 950px) {
+  grid-template-columns: 1fr;
+  width: 85%;
+  height: auto;
+        }
+
+>>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
 `;
 const H5 = styled.h5`
 color: #2d5bda;
@@ -83,6 +98,10 @@ padding: 5%;
 const ImageBox = styled.div`
 width: 100%;
 height: 100%;
+
+@media (max-width: 950px) {
+          display: none;
+        }
 `;
 const Img = styled.img`
 width: 100%;

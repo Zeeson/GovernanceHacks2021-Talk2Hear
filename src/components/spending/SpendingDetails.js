@@ -6,21 +6,20 @@ import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import styled from 'styled-components'
 
-
-const ProjectDetails = (props) => {
-const { project, auth } = props;
+const SpendingDetails = (props) => {
+const { spending, auth } = props;
 if (!auth.uid) return <Redirect to='/signin' />
-if(project){
+if(spending){
   return (
       <Container>
           <Proj className="card z-index-0">
             <div className="card-content">
-              <Title className="card-title"> {project.title} </Title>
-              <p> { project.content } </p>
+              <Title className="card-title"> {spending.title} </Title>
+              <p> { spending.content } </p>
             </div>
             <div className="card-action grey lighten-4 grey-text">
-              <div>  Posted by { project.authorFirstName } { project.authorLastName } </div>
-              <div> {moment(project.createdAt.toDate()).calendar()} </div>
+              <div>  Posted by { spending.ananymous } </div>
+              <div> {moment(spending.createdAt.toDate()).calendar()} </div>
             </div>
           </Proj>
       </Container>
@@ -28,7 +27,7 @@ if(project){
 } else {
   return (
       <div className="container center">
-        <p>Loading project...</p>
+        <p>Loading ...</p>
       </div>
     )
 }
@@ -40,16 +39,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 5%;
-margin-top: 15vh;
 `;
 const Proj = styled.div`
   border-radius: 10px;
   overflow: hidden;
   width: 75%;
-  @media (max-width: 950px) {
-
-  width: 95%;
-        }
 `;
 
 const Title =styled.span`
@@ -60,10 +54,10 @@ margin-bottom: 3vh;
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
-  const projects = state.firestore.data.projects;
-  const project = projects ? projects[id] : null
+  const spendings = state.firestore.data.spendings;
+  const spending = spendings ? spendings[id] : null
   return {
-    project: project,
+    spending: spending,
     auth: state.firebase.auth
   }
 }
@@ -71,6 +65,6 @@ const mapStateToProps = (state, ownProps) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([{
-    collection: 'projects'
+    collection: 'spendings'
   }])
-)(ProjectDetails)
+)(SpendingDetails)
