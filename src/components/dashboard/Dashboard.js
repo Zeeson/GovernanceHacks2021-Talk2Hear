@@ -2,6 +2,7 @@ import React from 'react'
 import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 // connect this component to d getFirestore
 import { firestoreConnect } from 'react-redux-firebase'
@@ -13,7 +14,7 @@ const Dashboard = (props) => {
   const { projects, auth, notifications  } = props
   if (!auth.uid) return <Redirect to='/signin' />
   return(
-    <div className="dashboard container">
+    <Dash className="dashboard container">
       <div className="row">
         <div className="col s12 m6">
           <ProjectList projects={projects} />
@@ -22,9 +23,13 @@ const Dashboard = (props) => {
           <Notifications notifications={notifications} />
         </div>
       </div>
-    </div>
+    </Dash>
   )
 }
+
+const Dash = styled.div`
+margin-top: 15vh;
+`;
 
 
 const mapStateToProps = (state) => {

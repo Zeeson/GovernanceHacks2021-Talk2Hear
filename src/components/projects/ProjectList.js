@@ -2,6 +2,7 @@ import React from 'react'
 import ProjectSummary from './ProjectSummary'
 import { Link } from 'react-router-dom'
 
+
 // projects props from the dashboard
 const ProjectList = ({projects}) => {
   return(
