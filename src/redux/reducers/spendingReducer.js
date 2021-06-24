@@ -1,5 +1,5 @@
 const initialState = {
-  projects: [
+  spendings: [
     {id:1, title:'write blog', content:'this is the redux app with auth and react'},
     {id:2, title:'read blog', content:'this is the redux app with auth and react'},
     {id:3, title:'make blog', content:'this is the redux app with auth and react'}

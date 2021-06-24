@@ -6,7 +6,7 @@ export const createSpending = (spending) => {
     const profile = getState().firebase.profile;
     const authorId = getState().firebase.auth.uid;
 
-    firestore.collection('spending').add({
+    firestore.collection('spendings').add({
       ...spending,
       authorFirstName: profile.firstName,
       authorLastName: profile.lastName,

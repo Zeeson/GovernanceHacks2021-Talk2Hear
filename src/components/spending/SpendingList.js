@@ -3,7 +3,7 @@ import SpendingSummary from './SpendingSummary'
 import { Link } from 'react-router-dom'
 
 // projects props from the dashboard
-const SpendingList = ({spending}) => {
+const SpendingList = ({spendings}) => {
   return(
     <div className="project-list section">
       {spendings && spendings.map(spending => {
@@ -17,4 +17,4 @@ const SpendingList = ({spending}) => {
   )
 }
 
-export default ProjectList
+export default SpendingList

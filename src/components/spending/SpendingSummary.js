@@ -8,7 +8,7 @@ const SpendingSummary = ({spending}) => {
       <CardContent className="card-content grey-text text-darken-3">
         <Title>{spending.title}</Title>
         <Body>Posted by {spending.ananymous} </Body>
-        <Date className="grey-text">{moment(project.createdAt.toDate()).calendar()}</Date>
+        <Date className="grey-text">{moment(spending.createdAt.toDate()).calendar()}</Date>
         <Reward> 3 points earned </Reward>
       </CardContent>
     </Card>
