@@ -25,7 +25,7 @@ align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #00000024;
   margin-bottom: 5vh;
-  padding: 30px 25px;
+  padding: 15px 15px;
 `;
 
 const CardImg =styled.div`
