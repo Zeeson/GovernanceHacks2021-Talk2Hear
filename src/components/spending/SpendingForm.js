@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { createSpending } from '../../redux/actions/spendingActions'
 import { Redirect, NavLink } from 'react-router-dom'
 import { RegionDropdown } from 'react-country-region-selector';
+import styled from 'styled-components'
 
 class CreateSpending extends Component {
 state = {
@@ -64,7 +65,7 @@ render() {
   const { auth } = this.props
   if (!auth.uid) return <Redirect to='/signin' />
     return (
-        <div className="container">
+        <Dash className="container">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3"> Report Public or Private Notables' Spending Ananymously</h5>
             <p className="grey-text text-darken-3"> Select from below or type if not found</p>
@@ -143,10 +144,14 @@ render() {
             <button className="btn green lighten-1 z-index-0">View other ananymous reports</button>
           </NavLink>
           </div>
-        </div>
+        </Dash>
     )
   }
 }
+
+const Dash = styled.div`
+margin-top: 15vh;
+`;
 
 const mapStateToProps = (state) => {
   return {
