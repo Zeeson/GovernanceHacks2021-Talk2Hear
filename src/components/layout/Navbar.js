@@ -12,11 +12,11 @@ const Navbar = (props) => {
 
   const [toggle, setToggle] = useState(false)
 
- 
+
 
   return(
     <Nav className="nav-wrapper grey darken-3">
-      
+
         <Link to="/" className="logo">Talk2Hear</Link>
 
         <Toggle className={toggle ? 'active' : ''} onClick={() => setToggle(!toggle)}>
@@ -29,8 +29,6 @@ const Navbar = (props) => {
           { links }
         </Menu>
 
-        
-    
     </Nav>
   )
 }
@@ -108,7 +106,7 @@ const Bar = styled.div`
 const Menu = styled.div`
 
 
-  
+
   ul li {
     display: inline-block;
     margin-left: 20px;

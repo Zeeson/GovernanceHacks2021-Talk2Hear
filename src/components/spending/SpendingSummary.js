@@ -1,10 +1,15 @@
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
+// image
+import thumb from '../images/thumbnail.png'
 
 const SpendingSummary = ({spending}) => {
   return (
     <Card>
+    <CardImg>
+        <Img src={ spending.imageUrl ? spending.imageUrl : thumb } alt="" />
+    </CardImg>
       <CardContent className="card-content grey-text text-darken-3">
         <Title>{spending.title}</Title>
         <Body>Posted by {spending.ananymous} </Body>
@@ -16,12 +21,26 @@ const SpendingSummary = ({spending}) => {
 }
 
 const Card =styled.div`
+display: flex;
+align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #00000024;
   margin-bottom: 5vh;
-  padding: 30px 25px;
+  padding: 15px 15px;
+`;
+const CardImg =styled.div`
+  margin-right: 2vw;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 6px;
 `;
 
+const Img =styled.img`
+width: 100%;
+height: 100%;
+object-fit: cover;
+`;
 const CardContent =styled.div`
 
 `;

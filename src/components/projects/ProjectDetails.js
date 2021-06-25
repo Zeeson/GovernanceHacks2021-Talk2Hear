@@ -5,7 +5,8 @@ import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import styled from 'styled-components'
-
+// image
+import thumb from '../images/thumbnail.png'
 
 const ProjectDetails = (props) => {
 const { project, auth } = props;
@@ -16,12 +17,16 @@ if(project){
           <Proj className="card z-index-0">
             <div className="card-content">
               <Title className="card-title"> {project.title} </Title>
+              <ContainerImg>
+                  <Img src={project.imageUrl ? project.imageUrl : thumb } alt="" />
+              </ContainerImg>
               <p> { project.content } </p>
             </div>
             <div className="card-action grey lighten-4 grey-text">
               <div>  Posted by { project.authorFirstName } { project.authorLastName } </div>
               <div> {moment(project.createdAt.toDate()).calendar()} </div>
             </div>
+
           </Proj>
       </Container>
   )
@@ -41,6 +46,18 @@ justify-content: center;
 align-items: center;
 padding: 5%;
 margin-top: 15vh;
+`;
+const ContainerImg =styled.div`
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 6px;
+`;
+
+const Img =styled.img`
+width: 100%;
+height: 100%;
+object-fit: cover;
 `;
 const Proj = styled.div`
   border-radius: 10px;
