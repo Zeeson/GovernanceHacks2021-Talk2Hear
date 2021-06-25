@@ -9633,11 +9633,7 @@ react-app-polyfill@^2.0.0:
 
 react-country-region-selector@^3.1.0:
   version "3.1.0"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/react-country-region-selector/-/react-country-region-selector-3.1.0.tgz#881bc56352c4fd4a3d89fe3fb96f7a9a2b8b9aff"
-=======
   resolved "https://registry.npmjs.org/react-country-region-selector/-/react-country-region-selector-3.1.0.tgz"
->>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
   integrity sha512-wA4K9W4qcbpPy2sd+utv7999qMwPoEfWVJj95xvl72xCopaLSsogQG1Y9HKX3wyTljCJZfUvAcrTnNZIQq6owA==
 
 react-dev-utils@^11.0.1:
@@ -9683,6 +9679,11 @@ react-error-overlay@^6.0.8:
   version "6.0.8"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.8.tgz"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
+
+react-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
