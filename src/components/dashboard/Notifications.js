@@ -14,7 +14,7 @@ const Notifications = (props) => {
               return <List key={item.id}>
                 <span className="pink-text">{item.user} </span>
                 <span>{item.content}</span>
-                <div className="note-date grey-text">{moment(item.time.toDate()).fromNow()}</div>
+                <Date className="note-date">{moment(item.time.toDate()).fromNow()}</Date>
               </List>
             })}
           </OnlineUsers>
@@ -34,6 +34,11 @@ const OnlineUsers =styled.ul`
 `;
 const List =styled.li`
   padding: 5%;
+`;
+const Date =styled.div`
+color:var(--Color-14);  
+float: right;
+font-size: 10pt;
 `;
 
 

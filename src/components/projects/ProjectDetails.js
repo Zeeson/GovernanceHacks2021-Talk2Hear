@@ -17,14 +17,17 @@ if(project){
           <Proj className="card z-index-0">
             <div className="card-content">
               <Title className="card-title"> {project.title} </Title>
+                <PostedBy>
+                    <Author>  Posted by { project.authorFirstName } { project.authorLastName } </Author>
+                  <Date> {moment(project.createdAt.toDate()).calendar()} </Date>
+                </PostedBy>
               <ContainerImg>
                   <Img src={project.imageUrl ? project.imageUrl : thumb } alt="" />
               </ContainerImg>
               <p> { project.content } </p>
             </div>
             <div className="card-action grey lighten-4 grey-text">
-              <div>  Posted by { project.authorFirstName } { project.authorLastName } </div>
-              <div> {moment(project.createdAt.toDate()).calendar()} </div>
+              
             </div>
 
           </Proj>
@@ -48,16 +51,17 @@ padding: 5%;
 margin-top: 15vh;
 `;
 const ContainerImg =styled.div`
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 50%;
   overflow: hidden;
   border-radius: 6px;
+  margin: 5vh 0;
 `;
 
 const Img =styled.img`
 width: 100%;
 height: 100%;
-object-fit: cover;
+
 `;
 const Proj = styled.div`
   border-radius: 10px;
@@ -70,9 +74,27 @@ const Proj = styled.div`
 `;
 
 const Title =styled.span`
-text-transform: capitalize;
 font-size: 20pt;
+font-weight: 700;
 margin-bottom: 3vh;
+`;
+const PostedBy =styled.div`
+display: flex;
+align-items: center;
+font-size: 8pt;
+font-weight: 200;
+margin-bottom: 3vh;
+`;
+
+const Date =styled.div`
+font-size: 8pt;
+color: var(--Color-14);
+margin: 20px;
+`;
+const Author =styled.div`
+font-size: 8pt;
+color: var(--Color-14);
+margin-right: 20px;
 `;
 
 const mapStateToProps = (state, ownProps) => {

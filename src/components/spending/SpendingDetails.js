@@ -53,9 +53,7 @@ const CardImg =styled.div`
   overflow: hidden;
   border-radius: 6px;
 `;
-const CardContent =styled.div`
 
-`;
 const Img =styled.img`
 width: 100%;
 height: 100%;
