@@ -1,8 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
-import { RiCoinsLine, RiCoinsFill } from 'react-icons/ri'
-import { GiCoins } from 'react-icons/gi'
+import { RiCoinsFill } from 'react-icons/ri'
 // image
 import thumb from '../images/thumbnail.png'
 
@@ -30,6 +29,7 @@ align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #00000024;
   margin-bottom: 5vh;
+  max-width: 450px;
   padding: 15px 15px;
   position: relative;
 `;
