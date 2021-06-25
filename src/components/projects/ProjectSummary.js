@@ -1,14 +1,14 @@
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
-// image 
+// image
 import thumb from '../images/thumbnail.png'
 
 const ProjectSummary = ({project}) => {
   return (
     <Card>
       <CardImg>
-          <Img src={thumb} alt="" />
+          <Img src={ project.imageUrl ? project.imageUrl : thumb } alt="" />
       </CardImg>
       <CardContent className="card-content grey-text text-darken-3">
         <Title>{project.title}</Title>
@@ -31,8 +31,8 @@ align-items: center;
 
 const CardImg =styled.div`
   margin-right: 2vw;
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   overflow: hidden;
   border-radius: 6px;
 `;

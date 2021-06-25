@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createProject } from '../../redux/actions/projectActions'
 import { Redirect } from 'react-router-dom'
+import firebaseConfig from '../../config/fbConfig'
 import styled from 'styled-components'
 
 class CreateProject extends Component {
@@ -33,6 +34,17 @@ handleImageUpload = (e) => {
   })
 }
 
+handleImage = async (e) => {
+  const file = e.target.files[0];
+  const storageRef = firebaseConfig.storage().ref()
+  const fileRef = storageRef.child(file.name)
+  await fileRef.put(file)
+  const imageUrl = await fileRef.getDownloadURL()
+  this.setState({
+    imageUrl: imageUrl
+  })
+}
+
 
 handleVideoUpload = (e) => {
   const values = e.target.files;
@@ -60,7 +72,7 @@ render() {
             <div className="file-field input-field">
             <div class="btn blue">
                 <span>Upload Image</span>
-                <input onChange={this.handleImageUpload} accept="image/*" type="file" multiple/>
+                <input onChange={this.handleImage} accept="image/*" type="file" multiple/>
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Upload one or more images" />
