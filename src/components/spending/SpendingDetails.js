@@ -16,14 +16,17 @@ if(spending){
           <Proj className="card z-index-0">
             <div className="card-content">
               <Title className="card-title"> {spending.title} </Title>
+              <PostedBy>
+                    <Author>  Posted by { spending.ananymous }  </Author>
+                  <Date> {moment(spending.createdAt.toDate()).calendar()}</Date>
+                </PostedBy>
               <CardImg>
                   <Img src={ spending.imageUrl ? spending.imageUrl : thumb } alt="" />
               </CardImg>
               <p> { spending.content } </p>
             </div>
             <div className="card-action grey lighten-4 grey-text">
-              <div>  Posted by { spending.ananymous } </div>
-              <div> {moment(spending.createdAt.toDate()).calendar()} </div>
+              
             </div>
           </Proj>
       </Container>
@@ -69,6 +72,25 @@ const Title =styled.span`
 text-transform: capitalize;
 font-size: 20pt;
 margin-bottom: 3vh;
+`;
+
+const PostedBy =styled.div`
+display: flex;
+align-items: center;
+font-size: 8pt;
+font-weight: 200;
+margin-bottom: 3vh;
+`;
+
+const Date =styled.div`
+font-size: 8pt;
+color: var(--Color-14);
+margin: 20px;
+`;
+const Author =styled.div`
+font-size: 8pt;
+color: var(--Color-14);
+margin-right: 20px;
 `;
 
 const mapStateToProps = (state, ownProps) => {
