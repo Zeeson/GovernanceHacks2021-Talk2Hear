@@ -74,11 +74,6 @@ height: 60vh;
 border-radius: 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 overflow: hidden;
-<<<<<<< HEAD
-=======
-@media (max-width: 1050px) {
-
-        }
 
         @media (max-width: 950px) {
   grid-template-columns: 1fr;
@@ -86,7 +81,6 @@ overflow: hidden;
   height: auto;
         }
 
->>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
 `;
 const H5 = styled.h5`
 color: #2d5bda;
