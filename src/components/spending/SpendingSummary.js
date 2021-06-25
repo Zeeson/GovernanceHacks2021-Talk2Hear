@@ -21,17 +21,20 @@ const SpendingSummary = ({spending}) => {
 }
 
 const Card =styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #00000024;
   margin-bottom: 5vh;
   padding: 15px 15px;
+  position: relative;
 `;
 const CardImg =styled.div`
   margin-right: 2vw;
-  width: 160px;
-  height: 160px;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
   overflow: hidden;
   border-radius: 6px;
 `;
@@ -44,13 +47,26 @@ object-fit: cover;
 const CardContent =styled.div`
 
 `;
-const Title =styled.span`
-text-transform: capitalize;
-font-size: 17pt;
-margin-bottom: 3vh;
+const Title =styled.div`
+span{
+  text-transform: capitalize;
+font-size: 11pt;
+margin-bottom: 30px;
+color: var(--Color-12);
+}
+overflow: hidden;
+height: 20px;
+/* overflow: hidden; */
 `;
 const Body =styled.p`
-font-size: 12pt;
+font-size: 10pt;
+margin-top: 10px;
+color: var(--Color-14);
+
+@media (max-width: 950px) {
+  font-size: 8pt;
+  margin-bottom: 5px;
+}
 
 `;
 const Date =styled.p`

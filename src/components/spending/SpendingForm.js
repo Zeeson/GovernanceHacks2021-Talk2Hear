@@ -126,6 +126,10 @@ render() {
             </p>
             </div>
             <div className="input-field">
+              <label htmlFor="title"> Report title: </label>
+              <textarea id="title" className="materialize-textarea" onChange={this.handleChange}> </textarea>
+            </div>
+            <div className="input-field">
               <label htmlFor="content"> What would you like to say: </label>
               <textarea id="content" className="materialize-textarea" onChange={this.handleChange}> </textarea>
             </div>

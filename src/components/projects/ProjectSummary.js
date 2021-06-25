@@ -54,13 +54,13 @@ height: 100%;
 const Title =styled.div`
 span{
   text-transform: capitalize;
-font-size: 15pt;
+font-size: 11pt;
 margin-bottom: 30px;
 color: var(--Color-12);
 }
 overflow: hidden;
-height: 30px;
-overflow: hidden;
+height: 20px;
+/* overflow: hidden; */
 `;
 const Body =styled.p`
 font-size: 10pt;

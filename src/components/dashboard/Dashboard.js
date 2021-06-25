@@ -17,11 +17,15 @@ const Dashboard = (props) => {
   return(
     <Dash className="dashboard container">
       <div className="row">
-        <div className="col s12 m6">
-          <ProjectList projects={projects} />
+        <div className="col s4 m4">
+          <h5> Spending Reports</h5>
           <SpendingList spendings={spendings} />
         </div>
-        <div className="col s12 m5 offset-m1">
+        <div className="col s4 m4">
+        <h5> Daily Reports</h5>
+          <ProjectList projects={projects} />
+        </div>
+        <div className="col s4 m3 offset-m1">
           <Notifications notifications={notifications} />
         </div>
       </div>

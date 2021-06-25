@@ -26,17 +26,19 @@ const Notifications = (props) => {
 
 const Heading =styled.span`
   margin-bottom: 5vh;
+  font-size: 20px !important;
 `;
 const OnlineUsers =styled.ul`
   padding: 5%;
   box-shadow: 0 2px 3px #00000018;
   border-radius: 10px;
+  font-size: 11px !important; 
 `;
 const List =styled.li`
   padding: 5%;
 `;
 const Date =styled.div`
-color:var(--Color-14);  
+color:var(--Color-14);
 float: right;
 font-size: 10pt;
 `;
