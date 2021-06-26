@@ -15,21 +15,36 @@ const Dashboard = (props) => {
   const { projects, spendings, auth, notifications  } = props
   if (!auth.uid) return <Redirect to='/signin' />
   return(
-    <Dash className="dashboard container">
-      <div className="row">
-        <div className="col s12 m6">
-          <ProjectList projects={projects} />
+    <Dash>
+      <Grid>
+        <DFlex>
           <SpendingList spendings={spendings} />
-        </div>
-        <div className="col s12 m5 offset-m1">
+          <ProjectList projects={projects} />
+          
+        </DFlex>
+        <div>
           <Notifications notifications={notifications} />
         </div>
-      </div>
+      </Grid>
     </Dash>
   )
 }
 
 const Dash = styled.div`
+margin-top: 15vh;
+padding: 0 7.5%;
+`;
+const DFlex = styled.div`
+display: flex;
+justify-content: space-between;
+
+`;
+const Grid = styled.div`
+display: grid;
+grid-template-columns: 70% auto;
+grid-gap: 30px;
+`;
+const D = styled.div`
 margin-top: 15vh;
 `;
 
