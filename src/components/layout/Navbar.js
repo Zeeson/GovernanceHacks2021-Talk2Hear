@@ -69,23 +69,6 @@ const Nav = styled.div`
 
 `;
 
-const Logo = styled.img`
-width: 200px;
-
-&.mobile{
-    display: none;
-  }
-
-@media (max-width: 680px) {
-  &,.desktop {
-    display: none;
-  }
-
-  &,.mobile{
-    display: block;
-  }
-}
-`;
 
 
 const Toggle = styled.div`
