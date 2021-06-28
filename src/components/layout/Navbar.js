@@ -20,7 +20,7 @@ const Navbar = (props) => {
     <Nav className="nav-wrapper grey darken-3">
 
         <Link to="/" className="logo">
-        <Pic>
+            <Pic>
               <source media="(max-width: 650px)" srcset={logoIcon} />
               <source media="(min-width: 650px)" srcset={logo} />
               <Img src={logo} alt="" />
