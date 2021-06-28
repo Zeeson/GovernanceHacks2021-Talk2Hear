@@ -33,6 +33,7 @@ const Dashboard = (props) => {
 const Dash = styled.div`
 margin-top: 15vh;
 padding: 0 7.5%;
+
 `;
 const DFlex = styled.div`
 display: flex;
