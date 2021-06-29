@@ -45,9 +45,7 @@ display: grid;
 grid-template-columns: 70% auto;
 grid-gap: 30px;
 `;
-const D = styled.div`
-margin-top: 15vh;
-`;
+
 
 
 const mapStateToProps = (state) => {
