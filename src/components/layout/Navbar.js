@@ -4,6 +4,8 @@ import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import logo from '../images/logo.png'
+import logoIcon from '../images/logo-i.png'
 
 // Navbar component
 const Navbar = (props) => {
@@ -17,7 +19,14 @@ const Navbar = (props) => {
   return(
     <Nav className="nav-wrapper grey darken-3">
 
-        <Link to="/" className="logo">Talk2Hear</Link>
+        <Link to="/" className="logo">
+            <Pic>
+              <source media="(max-width: 650px)" srcset={logoIcon} />
+              <source media="(min-width: 650px)" srcset={logo} />
+              <Img src={logo} alt="" />
+            </Pic>
+
+        </Link>
 
         <Toggle className={toggle ? 'active' : ''} onClick={() => setToggle(!toggle)}>
                 <Bar id='bar-1'></Bar>
@@ -33,6 +42,18 @@ const Navbar = (props) => {
   )
 }
 
+const Pic = styled.picture`
+width: 200px;
+`;
+
+const Img = styled.img`
+width: 200px;
+
+@media (max-width: 680px) {
+  width: 50px;
+}
+`;
+
 
 const Nav = styled.div`
     display: flex;
@@ -45,10 +66,7 @@ const Nav = styled.div`
     width: 100%;
     z-index: 999;
 
-    .logo {
-      font-size: 20pt;
-      color: #fff;
-    }
+
 `;
 
 

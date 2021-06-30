@@ -33,6 +33,7 @@ const Dashboard = (props) => {
 const Dash = styled.div`
 margin-top: 15vh;
 padding: 0 7.5%;
+
 `;
 const DFlex = styled.div`
 display: flex;
@@ -43,9 +44,7 @@ display: grid;
 grid-template-columns: 70% auto;
 grid-gap: 30px;
 `;
-const D = styled.div`
-margin-top: 15vh;
-`;
+
 
 
 const mapStateToProps = (state) => {

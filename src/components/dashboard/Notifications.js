@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Notifications = (props) => {
   const { notifications } = props;
   return (
-    <div className="section">
+    <Div className="section">
       <div className="card z-depth-0">
         <div className="card-content">
           <Heading className="card-title">Happening now</Heading>
@@ -20,10 +20,13 @@ const Notifications = (props) => {
           </OnlineUsers>
         </div>
       </div>
-    </div>
+    </Div>
   )
 }
 
+const Div =styled.div`
+background: transparent;
+`;
 const Heading =styled.span`
   margin-bottom: 5vh;
   font-size: 20px !important;
@@ -32,7 +35,11 @@ const OnlineUsers =styled.ul`
   padding: 5%;
   box-shadow: 0 2px 3px #00000018;
   border-radius: 10px;
+<<<<<<< HEAD
   font-size: 11px !important; 
+=======
+
+>>>>>>> a046d5661d118b2904a1f0b997c53fcc71b89f31
 `;
 const List =styled.li`
   padding: 5%;
