@@ -1,7 +1,7 @@
 import React from 'react'
 import Notifications from './Notifications'
-import ProjectList from '../projects/ProjectList'
-import SpendingList from '../spending/SpendingList'
+// import ProjectList from '../projects/ProjectList'
+// import SpendingList from '../spending/SpendingList'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
@@ -9,41 +9,56 @@ import styled from 'styled-components'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
+import ProjectTab from './ProjectTab'
+
+
 
 const Dashboard = (props) => {
   // console.log(props);
   const { projects, spendings, auth, notifications  } = props
   if (!auth.uid) return <Redirect to='/signin' />
-  return(
+
+
+  return (
     <Dash>
       <Grid>
-        <DFlex>
+        {/* <DFlex>
           <SpendingList spendings={spendings} />
           <ProjectList projects={projects} />
-          
-        </DFlex>
+        </DFlex> */}
+        <ProjectTab spendings={spendings} projects={projects} />
         <div>
           <Notifications notifications={notifications} />
         </div>
       </Grid>
+
+
     </Dash>
-  )
+  );
 }
 
 const Dash = styled.div`
-margin-top: 15vh;
-padding: 0 7.5%;
+  margin-top: 15vh;
+  padding: 0 7.5%;
+  font-family: "Josefin Sans", sans-serif;
 
+  @media (max-width: 900px) {
+    padding: 0 2%;
+  }
 `;
-const DFlex = styled.div`
-display: flex;
-justify-content: space-between;
+// const DFlex = styled.div`
+// display: flex;
+// justify-content: space-between;
 
-`;
+// `;
 const Grid = styled.div`
-display: grid;
-grid-template-columns: 70% auto;
-grid-gap: 30px;
+  display: grid;
+  grid-template-columns: 70% auto;
+  grid-gap: 30px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 

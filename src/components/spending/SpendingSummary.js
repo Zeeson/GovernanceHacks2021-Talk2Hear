@@ -23,18 +23,20 @@ const SpendingSummary = ({spending}) => {
   )
 }
 
-const Card =styled.div`
-display: flex;
-align-items: center;
+const Card = styled.div`
+  display: flex;
+  align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #00000024;
   margin-bottom: 5vh;
   max-width: 450px;
   padding: 15px 15px;
   position: relative;
+  background: #fff;
+  font-family: "Josefin Sans", sans-serif;
 `;
 
-const CardImg =styled.div`
+const CardImg = styled.div`
   margin-right: 2vw;
   min-width: 100px;
   min-height: 100px;
@@ -42,6 +44,7 @@ const CardImg =styled.div`
   max-height: 100px;
   overflow: hidden;
   border-radius: 6px;
+ 
 `;
 const CardContent =styled.div`
 
@@ -51,16 +54,22 @@ width: 100%;
 height: 100%;
 
 `;
-const Title =styled.div`
-span{
-  text-transform: capitalize;
-font-size: 15pt;
-margin-bottom: 30px;
-color: var(--Color-12);
-}
-overflow: hidden;
-height: 30px;
-overflow: hidden;
+const Title = styled.div`
+  span {
+    text-transform: capitalize;
+    font-size: 18pt;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: var(--Color-12);
+
+    @media (max-width: 900px) {
+      font-size: 16pt;
+      font-weight: 400;
+    }
+  }
+  overflow: hidden;
+  height: 30px;
+  overflow: hidden;
 `;
 const Body =styled.p`
 font-size: 10pt;

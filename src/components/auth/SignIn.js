@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../redux/actions/authActions'
-import { Redirect, NavLink } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import img from '../images/img.png'
+
 
 class SignIn extends Component {
 state = {
@@ -24,9 +25,8 @@ render() {
     if (auth.uid) return <Redirect to='/' />
 
     return (
-        <Container>
-
-          <Wrapper>
+      <Container>
+        <Wrapper>
           <Form onSubmit={this.handleSubmit} className="white">
             <H5> Sign In</H5>
             <div className="input-field">
@@ -35,25 +35,29 @@ render() {
             </div>
             <div className="input-field">
               <label htmlFor="password"> Password </label>
-              <input type="password" id="password" onChange={this.handleChange} />
+              <input
+                type="password"
+                id="password"
+                onChange={this.handleChange}
+              />
             </div>
             <div className="input-field">
               <button className="btn pink lighten-1 z-index-0">Login</button>
               <div className="center red-text">
-                { authError ? <p>{authError}</p> : null }
+                {authError ? <p>{authError}</p> : null}
               </div>
             </div>
-            <NavLink to='/signup'>
-              <button className="btn-large green z-index-0">Create New Account</button>
-            </NavLink>
+            <div className="signup">
+              <p>Don't have an Account? <Link to="/signup">Create New Account</Link></p>
+            </div>
+            
           </Form>
           <ImageBox>
             <Img src={img} alt="" />
           </ImageBox>
-          </Wrapper>
-
-        </Container>
-    )
+        </Wrapper>
+      </Container>
+    );
   }
 }
 

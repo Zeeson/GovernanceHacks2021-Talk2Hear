@@ -3,19 +3,29 @@ import ProjectSummary from './ProjectSummary'
 import { Link } from 'react-router-dom'
 
 
+
+
+
 // projects props from the dashboard
-const ProjectList = ({projects}) => {
-  return(
+const ProjectList = ({ projects }) => {
+
+
+  return (
     <div className="project-list section">
-      {projects && projects.map(project => {
-        return(
-          <Link to={'/project/' + project.id} key={project.id}>
-            <ProjectSummary project={project} />
-        </Link>
-        )
-      })}
+      {projects &&
+        projects.map((project) => {
+          return (
+            <Link to={"/project/" + project.id} key={project.id}>
+              <ProjectSummary project={project} />
+            </Link>
+          );
+        })}
+
+     
+        
+      
     </div>
-  )
+  );
 }
 
 export default ProjectList
