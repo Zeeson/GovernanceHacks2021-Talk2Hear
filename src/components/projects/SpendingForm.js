@@ -6,11 +6,6 @@ import { RegionDropdown } from 'react-country-region-selector';
 
 class CreateSpending extends Component {
 state = {
-<<<<<<< HEAD
-    title: '',
-    name: '',
-=======
->>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
     content: '',
     notables: '',
     imageData: [],
@@ -66,11 +61,6 @@ render() {
   const { country, region} = this.state
   const { auth } = this.props
   if (!auth.uid) return <Redirect to='/signin' />
-<<<<<<< HEAD
-=======
-    
-    
->>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
     return (
         <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
@@ -78,11 +68,7 @@ render() {
             <p className="grey-text text-darken-3"> Select from below or type if not found</p>
             <div className="input-field">
               <select value={this.state.value} onChange={this.handleSelectChange} className="input-field dark-gray">
-<<<<<<< HEAD
                 <option value="" selected>Select Notables</option>
-=======
-                <option value="" selected>Select Noteables</option>
->>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
                 <optgroup label="Government">
                   <option value="1">President Muhammadu Buhari</option>
                   <option value="2">Vice President Yemi Oshinbajo</option>
@@ -100,17 +86,10 @@ render() {
             </div>
             <p className="red-text">* Note: If Notables not above, Enter their names below:</p>
             <div className="input-field">
-<<<<<<< HEAD
               <label htmlFor="notables"> Enter Notables </label>
               <input type="text" id="notables" onChange={this.handleChange} />
             </div>
             <RegionDropdown
-=======
-              <label htmlFor="notables"> Enter Noteables </label>
-              <input type="text" id="notables" onChange={this.handleChange} />
-            </div>
-            <RegionDropdown 
->>>>>>> 969cd765c14d095549b6be7a2a63021ee9445ad7
             className="input-field"
             country={country}
             value={region}

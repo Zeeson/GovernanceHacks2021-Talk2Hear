@@ -14,8 +14,6 @@ const Navbar = (props) => {
 
   const [toggle, setToggle] = useState(false)
 
-
-
   return(
     <Nav className="nav-wrapper grey darken-3">
 
