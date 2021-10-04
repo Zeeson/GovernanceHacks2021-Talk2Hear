@@ -32,9 +32,11 @@ const Card =styled.div`
   max-width: 450px;
   padding: 15px 15px;
   position: relative;
+  background: #fff;
+  font-family: "Josefin Sans", sans-serif;
 `;
 
-const CardImg =styled.div`
+const CardImg = styled.div`
   margin-right: 2vw;
   min-width: 100px;
   min-height: 100px;
@@ -42,6 +44,7 @@ const CardImg =styled.div`
   max-height: 100px;
   overflow: hidden;
   border-radius: 6px;
+ 
 `;
 const CardContent =styled.div`
 
@@ -51,25 +54,34 @@ width: 100%;
 height: 100%;
 
 `;
+
 const Title =styled.div`
 span{
   text-transform: capitalize;
-<<<<<<< HEAD
 font-size: 11pt;
-=======
-font-size: 15pt;
->>>>>>> 98cf3f3cc1c1195cc3fcc6204e471c3847eae7d2
 margin-bottom: 30px;
 color: var(--Color-12);
 }
 overflow: hidden;
-<<<<<<< HEAD
 height: 20px;
+`
 /* overflow: hidden; */
-=======
-height: 30px;
-overflow: hidden;
->>>>>>> 98cf3f3cc1c1195cc3fcc6204e471c3847eae7d2
+const Title = styled.div`
+  span {
+    text-transform: capitalize;
+    font-size: 18pt;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: var(--Color-12);
+
+    @media (max-width: 900px) {
+      font-size: 16pt;
+      font-weight: 400;
+    }
+  }
+  overflow: hidden;
+  height: 30px;
+  overflow: hidden;
 `;
 const Body =styled.p`
 font-size: 10pt;

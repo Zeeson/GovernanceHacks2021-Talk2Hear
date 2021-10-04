@@ -1,8 +1,8 @@
-import React, { Component} from 'react'
-import { connect } from 'react-redux'
-import { createSpending } from '../../redux/actions/spendingActions'
-import { Redirect, NavLink } from 'react-router-dom'
-import { RegionDropdown } from 'react-country-region-selector';
+// import React, { Component} from 'react'
+// import { connect } from 'react-redux'
+// import { createSpending } from '../../redux/actions/spendingActions'
+// import { Redirect, NavLink } from 'react-router-dom'
+// import { RegionDropdown } from 'react-country-region-selector';
 
 class CreateSpending extends Component {
 state = {
@@ -17,45 +17,45 @@ state = {
     country: 'Nigeria'
 }
 
-handleChange = (e) => {
-  this.setState({
-    [e.target.id]: e.target.value
-  })
-}
+// handleChange = (e) => {
+//   this.setState({
+//     [e.target.id]: e.target.value
+//   })
+// }
 
-handleSelectChange = (e) => {
-  this.setState({value: e.target.value});
-}
+// handleSelectChange = (e) => {
+//   this.setState({value: e.target.value});
+// }
 
-handleSubmit = (e) => {
-  e.preventDefault();
-  this.props.createSpending(this.state)
-  this.props.history.push('/');
-}
+// handleSubmit = (e) => {
+//   e.preventDefault();
+//   this.props.createSpending(this.state)
+//   this.props.history.push('/');
+// }
 
-handleImageUpload = (e) => {
-  const values = e.target.files;
-  [...values].forEach(file => {
-  this.setState({ imageData: file, imageUrl: URL.createObjectURL(file)})
-  })
-}
+// handleImageUpload = (e) => {
+//   const values = e.target.files;
+//   [...values].forEach(file => {
+//   this.setState({ imageData: file, imageUrl: URL.createObjectURL(file)})
+//   })
+// }
 
-handleVideoUpload = (e) => {
-  const values = e.target.files;
-  [...values].forEach(file => {
-  this.setState({ videoData: file, videoUrl: URL.createObjectURL(file)})
-  })
-}
+// handleVideoUpload = (e) => {
+//   const values = e.target.files;
+//   [...values].forEach(file => {
+//   this.setState({ videoData: file, videoUrl: URL.createObjectURL(file)})
+//   })
+// }
 
-selectRegion = (val) => {
-  this.setState({ region: val });
-}
+// selectRegion = (val) => {
+//   this.setState({ region: val });
+// }
 
-componentDidMount() {
-  window.$(document).ready(function(){
-    window.$('select').not('.disabled').formSelect();
-    });
-}
+// componentDidMount() {
+//   window.$(document).ready(function(){
+//     window.$('select').not('.disabled').formSelect();
+//     });
+// }
 
 render() {
   const { country, region} = this.state
@@ -146,18 +146,18 @@ render() {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    auth: state.firebase.auth
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     auth: state.firebase.auth
+//   }
+// }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    createSpending: (spending) => dispatch(createSpending(spending))
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     createSpending: (spending) => dispatch(createSpending(spending))
+//   }
+// }
 
-export default connect(
-  mapStateToProps, mapDispatchToProps
-)(CreateSpending)
+// export default connect(
+//   mapStateToProps, mapDispatchToProps
+// )(CreateSpending)

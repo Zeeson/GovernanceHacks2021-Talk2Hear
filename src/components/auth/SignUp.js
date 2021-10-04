@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect, NavLink } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../../redux/actions/authActions'
 import styled from 'styled-components'
@@ -27,41 +27,47 @@ class SignUp extends Component {
     return (
       <Container>
         <Wrapper>
-        <ImageBox>
+          <ImageBox>
             <Img src={img} alt="" />
           </ImageBox>
-        <Form className="white" onSubmit={this.handleSubmit}>
-          <H5>Sign Up</H5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id='email' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id='firstName' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id='lastName' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
-            <div className="center red-text">
-              { authError ? <p>{authError}</p> : null }
+          <Form className="white" onSubmit={this.handleSubmit}>
+            <H5>Sign Up</H5>
+            <div className="input-field">
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" onChange={this.handleChange} />
             </div>
-          </div>
-          <NavLink to='/signin'>
-            Have an accout? <button className="btn-small bold green z-index-0 ">Sign In</button>
-          </NavLink>
-        </Form>
+            <div className="input-field">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="input-field">
+              <label htmlFor="firstName">First Name</label>
+              <input type="text" id="firstName" onChange={this.handleChange} />
+            </div>
+            <div className="input-field">
+              <label htmlFor="lastName">Last Name</label>
+              <input type="text" id="lastName" onChange={this.handleChange} />
+            </div>
+            <div className="input-field">
+              <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+              <div className="center red-text">
+                {authError ? <p>{authError}</p> : null}
+              </div>
+            </div>
+            <div className="signup">
+              <p>
+              Already  have an Account?{" "}
+                <Link to="/signin">Login</Link>
+              </p>
+            </div>
+          </Form>
         </Wrapper>
-
       </Container>
-    )
+    );
   }
 }
 
@@ -80,7 +86,7 @@ const Wrapper = styled.div`
 display: grid;
 grid-template-columns: auto 60%;
 width: 75%;
-height: 70vh;
+height: 75vh;
 border-radius: 20px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 overflow: hidden;

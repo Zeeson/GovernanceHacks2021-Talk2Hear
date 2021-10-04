@@ -4,7 +4,7 @@ import { createSpending } from '../../redux/actions/spendingActions'
 import { Redirect, NavLink } from 'react-router-dom'
 import { RegionDropdown } from 'react-country-region-selector';
 import styled from 'styled-components'
-import firebaseConfig from '../../config/fbConfig'
+// import firebaseConfig from '../../config/fbConfig'
 
 class CreateSpending extends Component {
 state = {

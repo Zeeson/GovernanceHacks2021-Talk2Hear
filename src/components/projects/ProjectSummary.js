@@ -23,15 +23,17 @@ const ProjectSummary = ({project}) => {
   )
 }
 
-const Card =styled.div`
-display: flex;
-align-items: center;
+const Card = styled.div`
+  display: flex;
+  align-items: center;
   border-radius: 10px;
   box-shadow: 0 2px 3px #00000024;
   margin-bottom: 5vh;
   max-width: 450px;
   padding: 15px 15px;
   position: relative;
+  background: #fff;
+  font-family: "Josefin Sans", sans-serif;
 `;
 
 const CardImg =styled.div`
