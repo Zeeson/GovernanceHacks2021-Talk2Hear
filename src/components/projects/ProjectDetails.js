@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import styled from 'styled-components'
 // image
-import thumb from '../images/thumbnail.png'
+// import thumb from '../images/thumbnail.png'
 
 const ProjectDetails = (props) => {
 const { project, auth } = props;
@@ -16,13 +16,13 @@ if(project){
       <Container>
           <Proj className="card z-index-0">
             <div className="card-content">
-              <Title className="card-title"> {project.title} </Title>
+              <Title> {project.title} </Title>
                 <PostedBy>
                     <Author>  Posted by { project.authorFirstName } { project.authorLastName } </Author>
                   <Date> {moment(project.createdAt.toDate()).calendar()} </Date>
                 </PostedBy>
               <ContainerImg>
-                  <Img src={project.imageUrl ? project.imageUrl : thumb } alt="" />
+                  <Img src={project.imageUrl ? project.imageUrl : null } alt="" />
               </ContainerImg>
               <p> { project.content } </p>
             </div>
@@ -58,10 +58,14 @@ const ContainerImg =styled.div`
   margin: 5vh 0;
 `;
 
-const Img =styled.img`
-width: 100%;
-height: 100%;
+const Img = styled.img`
+  width: 50%;
+  height: 50%;
 
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 const Proj = styled.div`
   border-radius: 10px;
@@ -73,10 +77,15 @@ const Proj = styled.div`
         }
 `;
 
-const Title =styled.span`
-font-size: 20pt;
-font-weight: 700;
-margin-bottom: 3vh;
+const Title = styled.h3`
+  font-size: 20pt;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 3vh;
+
+  @media (max-width: 900px) {
+    font-size: 16pt;
+  }
 `;
 const PostedBy =styled.div`
 display: flex;

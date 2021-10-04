@@ -10,25 +10,35 @@ const Notifications = (props) => {
         <div className="card-content">
           <Heading className="card-title">Happening now</Heading>
           <OnlineUsers className="online-users">
-            { notifications && notifications.map(item =>{
-              return <List key={item.id}>
-                <span className="pink-text">{item.user} </span>
-                <span>{item.content}</span>
-                <Date className="note-date">{moment(item.time.toDate()).fromNow()}</Date>
-              </List>
-            })}
+            {notifications &&
+              notifications.map((item) => {
+                return (
+                  <List key={item.id}>
+                    <span className="pink-text">{item.user} </span>
+                    <span>{item.content}</span>
+                    <Date className="note-date">
+                      {moment(item.time.toDate()).fromNow()}
+                    </Date>
+                  </List>
+                );
+              })}
           </OnlineUsers>
         </div>
       </div>
     </Div>
-  )
+  );
 }
 
-const Div =styled.div`
-background: transparent;
+const Div = styled.div`
+  background: transparent;
+
+  @media (max-width: 900px) {
+   display: none;
+  }
 `;
 const Heading =styled.span`
   margin-bottom: 5vh;
+  font-weight: 500 !important;
 `;
 const OnlineUsers =styled.ul`
   padding: 5%;
