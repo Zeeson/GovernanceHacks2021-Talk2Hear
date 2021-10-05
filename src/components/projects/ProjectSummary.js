@@ -46,34 +46,37 @@ const CardImg =styled.div`
   border-radius: 6px;
 `;
 const CardContent =styled.div`
-
 `;
 const Img =styled.img`
 width: 100%;
 height: 100%;
-
 `;
-const Title =styled.div`
-span{
-  text-transform: capitalize;
-font-size: 11pt;
-margin-bottom: 30px;
-color: var(--Color-12);
-}
-overflow: hidden;
-height: 20px;
-/* overflow: hidden; */
+const Title = styled.div`
+  span {
+    text-transform: capitalize;
+    font-size: 16pt;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--Color-12);
+    
+    @media (max-width: 900px) {
+    font-size: 16pt;
+    font-weight: 400;
+  }
+  }
+  overflow: hidden;
+  height: 30px;
+  overflow: hidden;
+ 
 `;
 const Body =styled.p`
 font-size: 10pt;
 margin-top: 10px;
 color: var(--Color-14);
-
 @media (max-width: 950px) {
   font-size: 8pt;
   margin-bottom: 5px;
 }
-
 `;
 const Date =styled.p`
 font-size: 8pt;

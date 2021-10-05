@@ -21,7 +21,7 @@ if(spending){
                   <Date> {moment(spending.createdAt.toDate()).calendar()}</Date>
                 </PostedBy>
               <CardImg>
-                  <Img src={ spending.imageUrl ? spending.imageUrl : thumb } alt="" />
+                  <Img src={ spending.photoUrl ? spending.photoUrl : thumb } alt="" />
               </CardImg>
               <p> { spending.content } </p>
             </div>

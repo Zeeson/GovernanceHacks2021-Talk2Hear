@@ -11,14 +11,13 @@ const createNotification = ((notification) => {
 exports.projectCreated = functions.firestore
   .document('projects/{projectId}')
   .onCreate(doc => {
-
     const project = doc.data();
     const notification = {
       content: 'Added a new post',
       user: `${project.authorFirstName} !`,
+      projectId: project.id
       time: admin.firestore.FieldValue.serverTimestamp()
     }
-
     return createNotification(notification);
 });
 
@@ -30,6 +29,7 @@ exports.spendingCreated = functions.firestore
     const notification = {
       content: 'New Notable Report',
       user: "Ananymous",
+      projectId: project.id
       time: admin.firestore.FieldValue.serverTimestamp()
     }
 

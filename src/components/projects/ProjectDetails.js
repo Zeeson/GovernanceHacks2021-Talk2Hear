@@ -61,7 +61,6 @@ const ContainerImg =styled.div`
 const Img = styled.img`
   width: 50%;
   height: 50%;
-
   @media (max-width: 900px) {
     width: 100%;
     height: 100%;
@@ -72,7 +71,6 @@ const Proj = styled.div`
   overflow: hidden;
   width: 75%;
   @media (max-width: 950px) {
-
   width: 95%;
         }
 `;
@@ -82,7 +80,6 @@ const Title = styled.h3`
   font-weight: 600;
   text-transform: capitalize;
   margin-bottom: 3vh;
-
   @media (max-width: 900px) {
     font-size: 16pt;
   }

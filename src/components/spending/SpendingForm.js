@@ -4,7 +4,7 @@ import { createSpending } from '../../redux/actions/spendingActions'
 import { Redirect, NavLink } from 'react-router-dom'
 import { RegionDropdown } from 'react-country-region-selector';
 import styled from 'styled-components'
-// import firebaseConfig from '../../config/fbConfig'
+import firebaseConfig from '../../config/fbConfig'
 
 class CreateSpending extends Component {
 state = {
@@ -44,16 +44,16 @@ handleImageUpload = (e) => {
   })
 }
 
-// handleImage = async (e) => {
-//   const file = e.target.files[0];
-//   const storageRef = firebaseConfig.storage().ref()
-//   const fileRef = storageRef.child(file.name)
-//   await fileRef.put(file)
-//   const photoUrl = await fileRef.getDownloadURL()
-//   this.setState({
-//     photoUrl: photoUrl
-//   })
-// }
+handleImage = async (e) => {
+  const file = e.target.files[0];
+  const storageRef = firebaseConfig.storage().ref()
+  const fileRef = storageRef.child(file.name)
+  await fileRef.put(file)
+  const photoUrl = await fileRef.getDownloadURL()
+  this.setState({
+    photoUrl: photoUrl
+  })
+}
 
 handleVideoUpload = (e) => {
   const values = e.target.files;
@@ -139,10 +139,10 @@ render() {
                 <input onChange={this.handleImage} accept="image/*" type="file" multiple/>
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Upload one or more images" />
+              <input class="file-path validate" type="text" placeholder="Upload supporting image" />
             </div>
             </div>
-            <div className="file-field input-field">
+            {/* <div className="file-field input-field">
             <div class="btn blue">
                 <span>Upload Video</span>
                 <input onChange={this.handleVideoUpload} accept="video/*" type="file" multiple />
@@ -150,7 +150,7 @@ render() {
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Upload one or more videos" />
             </div>
-            </div>
+            </div> */}
             <div className="input-field">
               <button className="btn pink lighten-1 z-index-0">Create</button>
             </div>

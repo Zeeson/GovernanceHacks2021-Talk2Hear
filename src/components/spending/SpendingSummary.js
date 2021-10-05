@@ -9,7 +9,7 @@ const SpendingSummary = ({spending}) => {
   return (
     <Card>
     <CardImg>
-        <Img src={ spending.imageUrl ? spending.imageUrl : thumb } alt="" />
+        <Img src={ spending.photoUrl ? spending.photoUrl : thumb } alt="" />
     </CardImg>
       <CardContent className="card-content grey-text text-darken-3">
         <Title>
@@ -70,13 +70,13 @@ height: 100%;
 const Title = styled.div`
   span {
     text-transform: capitalize;
-    font-size: 18pt;
-    font-weight: 900;
+    font-size: 16pt;
+    font-weight: 700;
     margin-bottom: 30px;
     color: var(--Color-12);
 
     @media (max-width: 900px) {
-      font-size: 16pt;
+      font-size: 14pt;
       font-weight: 400;
     }
   }
