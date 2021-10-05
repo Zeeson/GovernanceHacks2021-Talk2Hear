@@ -46,11 +46,11 @@ const Dash = styled.div`
     padding: 0 2%;
   }
 `;
-// const DFlex = styled.div`
-// display: flex;
-// justify-content: space-between;
 
-// `;
+const DFlex = styled.div`
+display: flex;
+justify-content: space-between;
+`;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 70% auto;

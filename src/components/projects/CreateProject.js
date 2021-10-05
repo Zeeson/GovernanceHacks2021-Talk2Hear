@@ -75,10 +75,10 @@ render() {
                 <input onChange={this.handleImage} accept="image/*" type="file" multiple/>
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Upload one or more images" />
+              <input class="file-path validate" type="text" placeholder="Upload supporting image" />
             </div>
             </div>
-            <div className="file-field input-field">
+            {/* <div className="file-field input-field">
             <div class="btn blue">
                 <span>Upload Video</span>
                 <input onChange={this.handleVideoUpload} accept="video/*" type="file" multiple />
@@ -86,7 +86,7 @@ render() {
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Upload one or more videos" />
             </div>
-            </div>
+            </div> */}
             <div className="input-field">
               <button className="btn pink lighten-1 z-index-0">Create</button>
             </div>

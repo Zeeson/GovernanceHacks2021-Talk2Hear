@@ -46,18 +46,16 @@ const CardImg =styled.div`
   border-radius: 6px;
 `;
 const CardContent =styled.div`
-
 `;
 const Img =styled.img`
 width: 100%;
 height: 100%;
-
 `;
 const Title = styled.div`
   span {
     text-transform: capitalize;
-    font-size: 18pt;
-    font-weight: 900;
+    font-size: 16pt;
+    font-weight: 700;
     margin-bottom: 30px;
     color: var(--Color-12);
     
@@ -69,19 +67,16 @@ const Title = styled.div`
   overflow: hidden;
   height: 30px;
   overflow: hidden;
-
  
 `;
 const Body =styled.p`
 font-size: 10pt;
 margin-top: 10px;
 color: var(--Color-14);
-
 @media (max-width: 950px) {
   font-size: 8pt;
   margin-bottom: 5px;
 }
-
 `;
 const Date =styled.p`
 font-size: 8pt;
