@@ -5,12 +5,12 @@ import { Redirect, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import img from '../images/img.png'
 
-
 class SignIn extends Component {
 state = {
     email: '',
     password: ''
   }
+
 handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
@@ -20,13 +20,20 @@ handleSubmit = (e) => {
     e.preventDefault();
     this.props.signIn(this.state)
   }
+  
 render() {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to='/' />
 
     return (
+      <>
+      <HeadText> 
+          <h3>Welcome to Talk2Hear</h3>
+           <p>Sign In and share your first report!</p>    
+      </HeadText>
       <Container>
         <Wrapper>
+          
           <Form onSubmit={this.handleSubmit} className="white">
             <H5> Sign In</H5>
             <div className="input-field">
@@ -57,17 +64,31 @@ render() {
           </ImageBox>
         </Wrapper>
       </Container>
+      </>
     );
   }
 }
 
 // styles
 
+const HeadText = styled.div`
+margin-top: 100px; 
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  p{
+    font-weight: bold;
+  }
+  h3{
+    font-weight: bold;
+  }
+`;
+
 const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-height: 100vh;
+height: 70vh;
 `;
 
 const Wrapper = styled.div`
@@ -86,6 +107,8 @@ overflow: hidden;
         }
 
 `;
+
+
 const H5 = styled.h5`
 color: #2d5bda;
 margin-bottom: 30px;
