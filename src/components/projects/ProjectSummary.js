@@ -47,10 +47,12 @@ const CardImg =styled.div`
 `;
 const CardContent =styled.div`
 `;
+
 const Img =styled.img`
 width: 100%;
 height: 100%;
 `;
+
 const Title = styled.div`
   span {
     text-transform: capitalize;
