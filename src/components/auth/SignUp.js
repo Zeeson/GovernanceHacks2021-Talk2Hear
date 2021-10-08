@@ -82,7 +82,7 @@ class SignUp extends Component {
 // styles
 
 const HeadText = styled.div`
-margin-top: 80px; 
+margin-top: 100px; 
   text-align: center;
   justify-content: center;
   align-items: flex-start;
