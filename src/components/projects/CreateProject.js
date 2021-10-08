@@ -1,65 +1,66 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { createProject } from '../../redux/actions/projectActions'
-import { Redirect } from 'react-router-dom'
-import firebaseConfig from '../../config/fbConfig'
-import styled from 'styled-components'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createProject } from "../../redux/actions/projectActions";
+import { Redirect } from "react-router-dom";
+import firebaseConfig from "../../config/fbConfig";
+import styled from "styled-components";
 
 class CreateProject extends Component {
-state = {
-    title: '',
-    content: '',
+  state = {
+    title: "",
+    content: "",
     imageData: [],
-    imageUrl: '',
+    imageUrl: "",
     videoData: [],
-    videoUrl: ''
-}
+    videoUrl: "",
+  };
 
-handleChange = (e) => {
-  this.setState({
-    [e.target.id]: e.target.value
-  })
-}
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  };
 
-handleSubmit = (e) => {
-  e.preventDefault();
-  this.props.createProject(this.state)
-  this.props.history.push('/');
-}
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.createProject(this.state);
+    this.props.history.push("/");
+  };
 
-handleImageUpload = (e) => {
-  const values = e.target.files;
-  [...values].forEach(file => {
-  this.setState({ imageData: file, imageUrl: URL.createObjectURL(file)})
-  })
-}
+  handleImageUpload = (e) => {
+    const values = e.target.files;
+    [...values].forEach((file) => {
+      this.setState({ imageData: file, imageUrl: URL.createObjectURL(file) });
+    });
+  };
 
-handleImage = async (e) => {
-  const file = e.target.files[0];
-  const storageRef = firebaseConfig.storage().ref()
-  const fileRef = storageRef.child(file.name)
-  await fileRef.put(file)
-  const imageUrl = await fileRef.getDownloadURL()
-  this.setState({
-    imageUrl: imageUrl
-  })
-}
+  handleImage = async (e) => {
+    const file = e.target.files[0];
+    const storageRef = firebaseConfig.storage().ref();
+    const fileRef = storageRef.child(file.name);
+    await fileRef.put(file);
+    const imageUrl = await fileRef.getDownloadURL();
+    this.setState({
+      imageUrl: imageUrl,
+    });
+  };
 
+  handleVideoUpload = (e) => {
+    const values = e.target.files;
+    [...values].forEach((file) => {
+      this.setState({ videoData: file, videoUrl: URL.createObjectURL(file) });
+    });
+  };
 
-handleVideoUpload = (e) => {
-  const values = e.target.files;
-  [...values].forEach(file => {
-  this.setState({ videoData: file, videoUrl: URL.createObjectURL(file)})
-  })
-}
-
-render() {
-  const { auth } = this.props
-  if (!auth.uid) return <Redirect to='/signin' />
+  render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin" />;
 
     return (
-        <Dash className="container">
-          <form onSubmit={this.handleSubmit} className="white">
+      <div id="modal1" className="modal">
+        {/* <Dash className="container"> */}
+          <form onSubmit={this.handleSubmit} className="">
+          <div className="modal-content">
             <h5 className="grey-text text-darken-3"> Post New Update / News</h5>
             <div className="input-field">
               <label htmlFor="title"> Title </label>
@@ -67,16 +68,31 @@ render() {
             </div>
             <div className="input-field">
               <label htmlFor="content"> Post Content </label>
-              <textarea id="content" className="materialize-textarea" onChange={this.handleChange}> </textarea>
+              <textarea
+                id="content"
+                className="materialize-textarea"
+                onChange={this.handleChange}
+              >
+                {" "}
+              </textarea>
             </div>
             <div className="file-field input-field">
-            <div class="btn blue">
+              <div class="btn blue">
                 <span>Upload Image</span>
-                <input onChange={this.handleImage} accept="image/*" type="file" multiple/>
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Upload supporting image" />
-            </div>
+                <input
+                  onChange={this.handleImage}
+                  accept="image/*"
+                  type="file"
+                  multiple
+                />
+              </div>
+              <div class="file-path-wrapper">
+                <input
+                  class="file-path validate"
+                  type="text"
+                  placeholder="Upload supporting image"
+                />
+              </div>
             </div>
             {/* <div className="file-field input-field">
             <div class="btn blue">
@@ -90,30 +106,28 @@ render() {
             <div className="input-field">
               <button className="btn pink lighten-1 z-index-0">Create</button>
             </div>
+            </div>
           </form>
-        </Dash>
-    )
+        {/* </Dash> */}
+      </div>
+    );
   }
 }
 
-
-const Dash = styled.div`
-margin-top: 15vh;
-`;
-
+// const Dash = styled.div`
+//   margin-top: 15vh;
+// `;
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
-  }
-}
+    auth: state.firebase.auth,
+  };
+};
 
 function mapDispatchToProps(dispatch) {
   return {
-    createProject: (project) => dispatch(createProject(project))
-  }
+    createProject: (project) => dispatch(createProject(project)),
+  };
 }
 
-export default connect(
-  mapStateToProps, mapDispatchToProps
-)(CreateProject)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);
