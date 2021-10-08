@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import Notifications from './Notifications'
 // import ProjectList from '../projects/ProjectList'
 // import SpendingList from '../spending/SpendingList'
@@ -10,29 +10,44 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import ProjectTab from './ProjectTab'
-
+import PopUp from '../splashScreen/PopUp'
 
 
 const Dashboard = (props) => {
   // console.log(props);
-  const { projects, spendings, auth, notifications  } = props
+  const { projects, spendings, auth, notifications } = props
+
+    const [modalState, setModalState] = useState(false);
+
+        const handleclose = () => {
+          setModalState(true);
+        };
+
+        useEffect(() => {
+          if (modalState === false)
+            return () => {
+              setModalState(true);
+            };
+        }, [modalState]);
   if (!auth.uid) return <Redirect to='/signin' />
+
+      
 
 
   return (
     <Dash>
+      {modalState ? null : <PopUp className='popUp' toggle={handleclose} />}
       <Grid>
         {/* <DFlex>
           <SpendingList spendings={spendings} />
           <ProjectList projects={projects} />
         </DFlex> */}
+       
         <ProjectTab spendings={spendings} projects={projects} />
         <div>
           <Notifications notifications={notifications} />
         </div>
       </Grid>
-
-
     </Dash>
   );
 }
@@ -60,6 +75,9 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+
+
 
 
 
