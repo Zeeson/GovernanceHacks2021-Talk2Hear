@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import Notifications from './Notifications'
 // import ProjectList from '../projects/ProjectList'
 // import SpendingList from '../spending/SpendingList'
@@ -10,14 +10,23 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import ProjectTab from './ProjectTab'
-
-
+import Alert from '@mui/material/Alert';
+import { AlertTitle } from "@mui/material";
 
 const Dashboard = (props) => {
+
+  useEffect(() => {
+      return () => {
+        <Alert onClose={() => {}} severity="info">
+        <AlertTitle>Welcome, </AlertTitle>
+        Read recent reports — <strong>and create one for others!</strong>
+    </Alert>
+    };
+  }, [])
+
   // console.log(props);
   const { projects, spendings, auth, notifications  } = props
   if (!auth.uid) return <Redirect to='/signin' />
-
 
   return (
     <Dash>

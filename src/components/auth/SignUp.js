@@ -25,6 +25,11 @@ class SignUp extends Component {
     const { auth, authError } = this.props;
     if (auth.uid) return <Redirect to='/' />
     return (
+      <>
+       <HeadText> 
+          <h3>Welcome to Talk2Hear</h3>
+           <p>Sign Up and share your first report!</p>    
+       </HeadText>
       <Container>
         <Wrapper>
           <ImageBox>
@@ -67,6 +72,8 @@ class SignUp extends Component {
           </Form>
         </Wrapper>
       </Container>
+
+      </>
     );
   }
 }
@@ -74,11 +81,24 @@ class SignUp extends Component {
 
 // styles
 
+const HeadText = styled.div`
+margin-top: 100px; 
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  p{
+    font-weight: bold;
+  }
+  h3{
+    font-weight: bold;
+  }
+`;
+
 const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-height: 100vh;
+height: 80vh;
 
 `;
 
